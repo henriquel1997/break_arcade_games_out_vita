@@ -63,7 +63,7 @@ update_menu(Input *input, f32 dt) {
     
     if (pressed(BUTTON_LMB)) {
         if (hot_level < L_COUNT && (!save_data.levels[hot_level].locked)) {
-            current_level = hot_level;
+            current_level = (Level)hot_level;
             change_game_mode(GM_GAMEPLAY);
         }
     }

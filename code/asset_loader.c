@@ -35,7 +35,7 @@ load_asset(int asset, u8 *asset_format) {
 
 
 OS_JOB_CALLBACK(async_load_ogg_callback) {
-    *(Loaded_Sound*)data3 = load_ogg_from_memory((String){data1, (s64)data2});
+    *(Loaded_Sound*)data3 = load_ogg_from_memory((String){(char*) data1, (s64)data2});
 }
 
 inline void
@@ -80,7 +80,7 @@ load_png(char *path) {
     String image = os_read_entire_file(path);
     int n;
     stbi_set_flip_vertically_on_load(1);
-    result.pixels = (u32*)stbi_load_from_memory((void*)image.data, (int)image.size, &result.width, &result.height, &n, 4);
+    result.pixels = (u32*)stbi_load_from_memory((stbi_uc*)image.data, (int)image.size, &result.width, &result.height, &n, 4);
     u32 *pixel = result.pixels;
     for (int y = 0; y < result.height; y++) {
         for (int x = 0; x < result.width; x++) {
@@ -107,7 +107,7 @@ load_png_from_pak(int asset) {
     
     int n;
     stbi_set_flip_vertically_on_load(1);
-    result.pixels = (u32*)stbi_load_from_memory((void*)image.data, (int)image.size, &result.width, &result.height, &n, 4);
+    result.pixels = (u32*)stbi_load_from_memory((stbi_uc*)image.data, (int)image.size, &result.width, &result.height, &n, 4);
     u32 *pixel = result.pixels;
     for (int y = 0; y < result.height; y++) {
         for (int x = 0; x < result.width; x++) {

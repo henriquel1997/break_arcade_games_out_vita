@@ -712,7 +712,7 @@ update_game(Input *input, f32 dt) {
             if (inverted_controls_t > 0) inverted_controls_t -= dt;
             if (slow_player_t > 0) slow_player_t -= dt;
             
-            if (advance_level) start_game(advance_level_target);
+            if (advance_level) start_game((Level)advance_level_target);
             if (lose_life_at_the_end_for_frame) {
                 
                 lose_life_at_the_end_for_frame = false;

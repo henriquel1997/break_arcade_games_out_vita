@@ -469,9 +469,9 @@ spawn_tetris_shape(int random_lane, f32 size, b32 neighbours, Block *parent_bloc
                 block->ball_speed_multiplier = min(2.f, 1+ block->level_specific.shape_index*.15f);
                 
                 if (tetris->shapes_spawned == 1 || tetris->level_progression == 3)
-                    block->power_block = random_int_in_range(POWERUP_LAST+1, POWER_COUNT-1);
+                    block->power_block = (Power_Block_Kind)random_int_in_range(POWERUP_LAST+1, POWER_COUNT-1);
                 else if (tetris->win) {
-                    if (random_choice(3)) block->power_block = random_int_in_range(0, POWERUP_LAST);
+                    if (random_choice(3)) block->power_block = (Power_Block_Kind)random_int_in_range(0, POWERUP_LAST);
                 }
                 
             }
@@ -696,7 +696,7 @@ create_invader(v2 p) { //TODO: Center this p
                 block->parent_p = &level_state.invaders.enemy_p;
                 
                 if (random_choice(20)) {
-                    block->power_block = random_powerup();
+                    block->power_block = (Power_Block_Kind)random_powerup();
                 }
             }
             p.x += block_half_size*2.f;
@@ -789,8 +789,8 @@ start_game(Level level) {
     }
     
     advance_level = false;
-    if (level >= L_COUNT) level = 0;
-    else if (level < 0) level = L_COUNT-1;
+    if (level >= L_COUNT) level = (Level)0;
+    else if (level < 0) level = (Level)(L_COUNT-1);
     
     score = 0;
     player_life = 3;
@@ -851,10 +851,10 @@ start_game(Level level) {
                     
                     if (y <= 2) {
                         if (random_choice(5))
-                            block->power_block = random_powerup();
+                            block->power_block = (Power_Block_Kind)random_powerup();
                     } else if (y >= 6) {
                         if (random_choice(6))
-                            block->power_block = random_powerdown();
+                            block->power_block = (Power_Block_Kind)random_powerdown();
                     }
                 }
                 
@@ -871,7 +871,7 @@ start_game(Level level) {
             for (Block *block = blocks; block != blocks+array_count(blocks); block++) {
                 if (!block->life) continue;
                 if (random_choice(3))
-                    block->power_block = random_powerdown();
+                    block->power_block = (Power_Block_Kind)random_powerdown();
             }
         } break;
         

@@ -1,0 +1,11 @@
+break_arcade_games_out
+*.self
+*.out
+*.velf
+*.vpk
+*.sfo
+*cmake
+CMakeCache.txt
+Makefile
+CMakeFiles/*
+build/*
