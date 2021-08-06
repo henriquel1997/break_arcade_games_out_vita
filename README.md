@@ -1,39 +1,15 @@
-# Break Arcade Games Out
-What if Breakout was the only arcade game people could make? An open-source game, written entirely on a live stream.
+# Break Arcade Games Out PS Vita Port
+This is a port of the game Break Arcade Games Out to the Playstation Vita.
+Original Version: https://github.com/DanZaidan/break_arcade_games_out
 
-Game on Steam: https://store.steampowered.com/app/1145020/Break_Arcade_Games_Out/
-
-Watch the Entire Game Development on Youtube: https://www.youtube.com/playlist?list=PL7Ej6SUky1357r-Lqf_nogZWHssXP-hvH
-
+The whole development process of the original game was recorded and you can watch it in this playlist: https://www.youtube.com/playlist?list=PL7Ej6SUky1357r-Lqf_nogZWHssXP-hvH
 
 # About the Source code
-
-Hello!
-Thanks for downloading the Source Code for Break Arcade Games Out!
-I hope you find this educational and entertaining.
-The license is: do whatever you want with it. :)
-
-
-You can watch several tutorials about this game and its source code on my Youtube Channel:
-https://www.youtube.com/DanZaidan
-
-Full playlist:
-https://www.youtube.com/playlist?list=PL7Ej6SUky1357r-Lqf_nogZWHssXP-hvH
-
-
 To build it:
-If you are on Windows, open a Developer Console for Visual Studio (a console you can call the cl command) and just run the build.bat inside the code folder.
-The executable will be created on the build folder. You should run it from the base directory (not inside the build folder).
-
-Mode detailed instructions and Source Code Walkthough:
-https://www.youtube.com/watch?v=M0yE4Kl85to
-
-I hope this is useful to you.
-Best,
-Dan Zaidan
-
+Install the vita homebrew sdk (https://vitasdk.org/), and run "cmake . && make" to build the .vpk.
 
 # LICENSE
+The license below is just a copy from the original repository.
 
 This license is supposed to be as permissive as possible. So attribution is not required, but appreciated. A donation is also appreciated :) .
 
